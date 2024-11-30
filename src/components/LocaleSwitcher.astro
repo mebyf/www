@@ -1,0 +1,23 @@
+---
+import { localesObject, defaultLocale } from '@/i18n/ui'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+
+const locale = Astro.currentLocale
+
+let path = Astro.url.pathname
+
+if (locale !== defaultLocale) {
+  const [, , ...url] = Astro.url.pathname?.split('/')
+  path = url.join('/')
+}
+---
+
+<ul>
+  {
+    Object.entries(localesObject).map(([lang, label]) => (
+      <li>
+        <a href={getRelativeLocaleUrl(lang, path, {})}>{label}</a>
+      </li>
+    ))
+  }
+</ul>

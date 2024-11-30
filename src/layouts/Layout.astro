@@ -1,24 +1,32 @@
 ---
+import LocaleSwitcher from '@/components/LocaleSwitcher.astro'
 import '../styles.css'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { defaultLocale } from '@/i18n/ui'
 
 export interface Props {
-	title: string;
+  title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
+
+const locale = Astro.currentLocale || defaultLocale
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='Astro description' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a href={getRelativeLocaleUrl(locale, '/')}>LOGO</a>
+
+    <LocaleSwitcher />
+    <slot />
+  </body>
 </html>

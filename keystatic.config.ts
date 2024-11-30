@@ -1,4 +1,4 @@
-import { config, fields, collection, singleton } from '@keystatic/core';
+import { config, fields, collection, singleton } from '@keystatic/core'
 
 export default config({
   storage: {
@@ -18,8 +18,8 @@ export default config({
           label: 'Content',
           options: {
             image: {
-              directory: 'src/assets/images/posts',
-              publicPath: '../../assets/images/posts/',
+              directory: 'src/assets/images/pages',
+              publicPath: '@assets/images/pages/',
             },
           },
         }),
@@ -27,8 +27,8 @@ export default config({
           label: 'Content',
           options: {
             image: {
-              directory: 'src/assets/images/posts',
-              publicPath: '../../assets/images/posts/',
+              directory: 'src/assets/images/pages',
+              publicPath: '@assets/images/pages/',
             },
           },
         }),
@@ -48,8 +48,8 @@ export default config({
           label: 'Content',
           options: {
             image: {
-              directory: 'src/assets/images/posts',
-              publicPath: '../../assets/images/posts/',
+              directory: 'src/assets/images/pages',
+              publicPath: '@assets/images/pages/',
             },
           },
         }),
@@ -69,11 +69,11 @@ export default config({
                 },
               }),
               itemLabel(props) {
-                return props.value ?? 'No URL selected';
+                return props.value ?? 'No URL selected'
               },
             },
           },
-          { label: 'Links', description: 'Links to pages or URLs' },
+          { label: 'Links', description: 'Links to pages or URLs' }
         ),
       },
     }),
@@ -114,4 +114,4 @@ export default config({
       },
     }),
   },
-});
+})
