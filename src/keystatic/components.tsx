@@ -60,6 +60,24 @@ export const components = {
     },
   }),
 
+  Projects: wrapper({
+    label: 'Projects Section',
+    schema: {
+      title: fields.text({ label: 'Title' }),
+      subtitle: fields.text({ label: 'Subtitle' }),
+      filter: fields.select({
+        label: 'Filter',
+        description: 'Filter projects by type',
+        options: [
+          { label: 'All', value: 'all' },
+          { label: 'Active', value: 'active' },
+          { label: 'Completed', value: 'completed' },
+        ],
+        defaultValue: 'all',
+      }),
+    },
+  }),
+
   VideoPlayer: block({
     label: 'Video Player',
     description: 'Upload a video',

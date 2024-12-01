@@ -23,6 +23,15 @@ export default defineMarkdocConfig({
       },
     },
 
+    Projects: {
+      render: component('./src/components/Projects.astro'),
+      attributes: {
+        title: { type: String },
+        subtitle: { type: String },
+        filter: { type: String },
+      },
+    },
+
     Container: {
       render: component('./src/components/Container.tsx', 'Container'),
       attributes: {

@@ -21,13 +21,13 @@
         "discriminant": "links",
         "value": [
           {
-            "label": "Projects",
-            "link": "/projects",
+            "label": "Current Projects",
+            "link": "/current-projects",
             "isExternal": false
           },
           {
-            "label": "Get Involved",
-            "link": "/get-involved",
+            "label": "Finished Projects",
+            "link": "/finished-projects",
             "isExternal": false
           }
         ]

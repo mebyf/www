@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content'
+import { Projects as ProjectsComponent } from './Projects'
+
+interface Props {
+  title?: string
+  subtitle?: string
+  filter?: 'all' | 'active' | 'completed'
+}
+
+const { title, subtitle, filter = 'all' } = Astro.props
+
+const projects = await getCollection('projects')
+
+const filteredProjects = projects
+  .filter((project: any) => {
+    if (filter === 'active') {
+      return project.data.stage !== 'close-out'
+    }
+
+    if (filter === 'completed') {
+      return project.data.stage === 'close-out'
+    }
+
+    return true
+  })
+  .map((project) => ({
+    ...project,
+    data: {
+      ...project.data,
+      featuredImage: project.data.featuredImage.replace(
+        '@assets/images/projects/',
+        '/src/assets/images/projects/'
+      ),
+    },
+  }))
+
+console.log(projects)
+---
+
+<ProjectsComponent
+  title={title}
+  subtitle={subtitle}
+  filter={filter}
+  projects={filteredProjects}
+/>

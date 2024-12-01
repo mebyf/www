@@ -99,4 +99,10 @@ export const collections = {
       base: 'src/content/footer',
     }),
   }),
+  projects: defineCollection({
+    loader: glob({
+      pattern: ['**/[^_]*.(mdoc)'],
+      base: 'src/content/projects',
+    }),
+  }),
 }

@@ -39,29 +39,6 @@
       ]
     },
     {
-      "label": "Get Involved",
-      "isExternal": false,
-      "isCTA": false,
-      "ctaStyle": "primary",
-      "children": []
-    },
-    {
-      "label": "About",
-      "link": "/about",
-      "isExternal": false,
-      "isCTA": false,
-      "ctaStyle": "primary",
-      "children": []
-    },
-    {
-      "label": "News",
-      "link": "/news",
-      "isExternal": false,
-      "isCTA": false,
-      "ctaStyle": "primary",
-      "children": []
-    },
-    {
       "label": "Donate",
       "link": "/donate",
       "isExternal": false,
