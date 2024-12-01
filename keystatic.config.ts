@@ -204,8 +204,8 @@ const footerConfig = collection({
           }),
           darkModeImage: fields.image({
             label: 'Dark Mode Logo',
-            directory: 'public/images/footer',
-            publicPath: '/images/footer/',
+            directory: 'src/assets/images/footer',
+            publicPath: '@assets/images/footer/',
           }),
           width: fields.number({
             label: 'Width (px)',
@@ -274,8 +274,8 @@ const footerConfig = collection({
                 url: fields.text({ label: 'URL' }),
                 icon: fields.image({
                   label: 'Custom Icon (Optional)',
-                  directory: 'public/images/social',
-                  publicPath: '/images/social/',
+                  directory: 'src/assets/images/social',
+                  publicPath: '@assets/images/social/',
                 }),
               }),
               {
@@ -307,6 +307,56 @@ const footerConfig = collection({
         }
       ),
     }),
+  },
+})
+
+const projectsCollection = collection({
+  label: 'Projects',
+  slugField: 'title',
+  path: 'src/content/projects/**/',
+  format: { contentField: 'content' },
+  schema: {
+    title: fields.slug({ name: { label: 'Title' } }),
+    description: fields.text({ label: 'Description', multiline: true }),
+    featuredImage: fields.image({
+      label: 'Featured Image',
+      directory: 'src/assets/images/projects',
+      publicPath: '@assets/images/projects/',
+    }),
+    images: fields.array(fields.image({
+      label: 'Image',
+      directory: 'src/assets/images/projects',
+      publicPath: '@assets/images/projects/',
+    })),
+    location: fields.text({ label: 'Location' }),
+    stage: fields.select({
+      label: 'Stage',
+      options: [
+        { label: 'Request', value: 'request' },
+        { label: 'Proposal', value: 'proposal' },
+        { label: 'Execution', value: 'execution' },
+        { label: 'Close-out', value: 'close-out' },
+      ],
+      defaultValue: 'request',
+    }),
+    tags: fields.array(fields.text({ label: 'Tag' }), {
+      label: 'Project Tags',
+      itemLabel: (props) => props.value,
+    }),
+    url: fields.text({ label: 'Project URL' }),
+    content: fields.markdoc({
+      label: 'Content',
+      options: {
+        image: {
+          directory: 'src/assets/images/projects',
+          publicPath: '@assets/images/projects/',
+        },
+      },
+    }),
+    relatedProjects: fields.array(fields.relationship({
+      label: 'Related Project',
+      collection: 'projects',
+    })),
   },
 })
 
@@ -371,69 +421,13 @@ export default config({
           },
           components: components,
         }),
-
-        links: fields.blocks(
-          {
-            url: {
-              label: 'URL',
-
-              schema: fields.text({
-                label: 'Test',
-                validation: {
-                  pattern: {
-                    regex:
-                      /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/,
-                  },
-                },
-              }),
-              itemLabel(props) {
-                return props.value ?? 'No URL selected'
-              },
-            },
-          },
-          { label: 'Links', description: 'Links to pages or URLs' }
-        ),
       },
     }),
 
     navigation: navigationConfig,
 
     footer: footerConfig,
-  },
 
-  singletons: {
-    home: singleton({
-      label: 'Home',
-      path: 'src/content/pages/home/',
-      schema: {
-        heading: fields.document({
-          formatting: {
-            inlineMarks: {
-              bold: true,
-            },
-          },
-          label: 'Heading (note: text that is bolded will show up in red)',
-        }),
-      },
-    }),
-    about: singleton({
-      label: 'About',
-      path: 'src/content/pages/about/',
-      schema: {
-        content: fields.document({
-          formatting: true,
-          dividers: true,
-          links: true,
-          layouts: [
-            [1, 1],
-            [1, 1, 1],
-            [2, 1],
-            [1, 2, 1],
-          ],
-          label: 'Content',
-          // componentBlocks: ComponentBlocks,
-        }),
-      },
-    }),
+    projects: projectsCollection,
   },
 })

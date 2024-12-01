@@ -93,4 +93,10 @@ export const collections = {
     schema: pagesSchema,
   }),
   navigation,
+  footer: defineCollection({
+    loader: glob({
+      pattern: ['**/[^_]*.(json)'],
+      base: 'src/content/footer',
+    }),
+  }),
 }

@@ -17,9 +17,16 @@ export default defineMarkdocConfig({
     Hero: {
       render: component('./src/components/Hero.tsx', 'Hero'),
       attributes: {
-        title: { type: String, },
+        title: { type: String },
         subtitle: { type: String },
         image: { type: String },
+      },
+    },
+
+    Container: {
+      render: component('./src/components/Container.tsx', 'Container'),
+      attributes: {
+        crop: { type: String },
       },
     },
 

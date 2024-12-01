@@ -9,6 +9,13 @@
   },
   "columns": [
     {
+      "title": "About",
+      "content": {
+        "discriminant": "text",
+        "value": "Stichting Ingenieurs Zonder Grenzen\n\nKvK 65174275\nANBI: RSIN 856007638\n\nCIC Rotterdam\nStationsplein 45, 4th floor\n3013AK Rotterdam"
+      }
+    },
+    {
       "title": "Links",
       "content": {
         "discriminant": "links",
@@ -24,13 +31,6 @@
             "isExternal": false
           }
         ]
-      }
-    },
-    {
-      "title": "About",
-      "content": {
-        "discriminant": "text",
-        "value": "Stichting Ingenieurs Zonder Grenzen\n\nKvK 65174275\nANBI: RSIN 856007638\n\nCIC Rotterdam\nStationsplein 45, 4th floor\n3013AK Rotterdam"
       }
     },
     {
