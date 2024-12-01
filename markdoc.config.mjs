@@ -15,7 +15,7 @@ export default defineMarkdocConfig({
       },
     },
     Hero: {
-      render: component('./src/components/Hero.tsx', 'Hero'),
+      render: component('./src/components/Hero.astro'),
       attributes: {
         title: { type: String },
         subtitle: { type: String },

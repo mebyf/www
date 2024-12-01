@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets'
+import { HeroClient } from './Hero.tsx'
+
+interface Props {
+  title: string
+  subtitle: string
+  image: string
+}
+
+const { title, subtitle, image } = Astro.props
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '@assets/images/**/*.{jpeg,jpg,png,gif,webp}'
+)
+
+if (image && !images?.[image]) {
+  throw new Error(
+    `"${image}" does not exist in glob: "@assets/images/**/*.{jpeg,jpg,png,gif,webp}"`
+  )
+}
+
+const imageSrc = images?.[image]?.()
+---
+
+<HeroClient title={title} subtitle={subtitle}>
+  <Image
+    slot='imageElement'
+    src={imageSrc}
+    alt={title}
+    height={750}
+    width={700}
+    class='w-full max-h-[75vh] object-cover rounded-none'
+  />
+</HeroClient>

@@ -1,6 +1,6 @@
 import { block, wrapper } from '@keystatic/core/content-components'
 import { fields } from '@keystatic/core'
-import { Hero } from '@/components/Hero'
+import { HeroClient } from '@/components/Hero'
 
 export const components = {
   // Content components here
@@ -37,7 +37,7 @@ export const components = {
       // (2)
       const url = URL.createObjectURL(blob)
 
-      return <Hero {...otherProps} image={url} />
+      return <HeroClient {...otherProps} image={url} />
     },
   }),
 
