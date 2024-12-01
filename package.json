@@ -3,6 +3,7 @@
   "version": "0.0.54",
   "license": "MIT",
   "dependencies": {
+    "@astrojs/cloudflare": "^11.2.0",
     "@astrojs/markdoc": "0.12.0-beta.1",
     "@astrojs/react": "4.0.0-beta.2",
     "@astrojs/tailwind": "^5.1.2",
@@ -22,10 +23,12 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "build:local": "ASTRO_OUTPUT_MODE=static astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.15"
+    "@tailwindcss/typography": "^0.5.15",
+    "vite": "^6.0.1"
   }
 }
