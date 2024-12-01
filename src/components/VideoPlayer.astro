@@ -1,0 +1,12 @@
+---
+type Props = {
+  src: string
+  controls?: boolean
+  autoplay?: boolean
+  loop?: boolean
+}
+
+let props = Astro.props as Props
+---
+
+<video {...props} class='max-w-full'></video>

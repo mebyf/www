@@ -5,17 +5,16 @@ import { render } from 'astro:content'
 import Prose from '../components/Prose.astro'
 
 const { slug } = Astro.params
-console.log(slug)
 
 const post = await getEntry('pages', slug ?? 'index')
 
 if (!post) throw new Error('No post found for this slug')
-console.log(post)
-const { Content, headings } = await render(post)
+
+const { Content } = await render(post)
 // Generate static pages
 export async function getStaticPaths() {
   const posts = await getCollection('pages')
-  console.log(posts)
+
   return posts.map((post) => ({
     params: { slug: post.id === 'index' ? '/' : post.id },
   }))
@@ -23,10 +22,7 @@ export async function getStaticPaths() {
 ---
 
 <Layout title={post.data.title}>
-  <div class='container mx-auto'>
-    <h1>{post.data.title}</h1>
-    <Prose>
-      <Content />
-    </Prose>
-  </div>
+  <Prose>
+    <Content />
+  </Prose>
 </Layout>

@@ -1,0 +1,62 @@
+{
+  "logo": {
+    "discriminant": "image",
+    "value": {
+      "image": "/images/footer/default/logo/value/image.png",
+      "width": 120,
+      "height": 40
+    }
+  },
+  "columns": [
+    {
+      "title": "Links",
+      "content": {
+        "discriminant": "links",
+        "value": [
+          {
+            "label": "Projects",
+            "link": "/projects",
+            "isExternal": false
+          },
+          {
+            "label": "Get Involved",
+            "link": "/get-involved",
+            "isExternal": false
+          }
+        ]
+      }
+    },
+    {
+      "title": "About",
+      "content": {
+        "discriminant": "text",
+        "value": "Stichting Ingenieurs Zonder Grenzen\n\nKvK 65174275\nANBI: RSIN 856007638\n\nCIC Rotterdam\nStationsplein 45, 4th floor\n3013AK Rotterdam"
+      }
+    },
+    {
+      "title": "Social",
+      "content": {
+        "discriminant": "social",
+        "value": [
+          {
+            "platform": "twitter",
+            "url": "https://twitter.com/"
+          }
+        ]
+      }
+    }
+  ],
+  "bottomSection": {
+    "copyright": "© Stichting Ingenieurs Zonder Grenzen",
+    "links": [
+      {
+        "label": "Privacy Policy",
+        "url": "/privacy-policy"
+      },
+      {
+        "label": "Terms of Condition",
+        "url": "/terms-of-condition"
+      }
+    ]
+  }
+}

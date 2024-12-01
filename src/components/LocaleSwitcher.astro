@@ -1,8 +1,8 @@
 ---
-import { localesObject, defaultLocale } from '@/i18n/ui'
-import { getRelativeLocaleUrl } from 'astro:i18n'
+import { defaultLocale } from '@/i18n/ui'
+import { LocaleSwitcherClient } from './LocaleSwitcher'
 
-const locale = Astro.currentLocale
+const locale = Astro.currentLocale || defaultLocale
 
 let path = Astro.url.pathname
 
@@ -12,12 +12,4 @@ if (locale !== defaultLocale) {
 }
 ---
 
-<ul>
-  {
-    Object.entries(localesObject).map(([lang, label]) => (
-      <li>
-        <a href={getRelativeLocaleUrl(lang, path, {})}>{label}</a>
-      </li>
-    ))
-  }
-</ul>
+<LocaleSwitcherClient path={path} locale={locale} client:visible />

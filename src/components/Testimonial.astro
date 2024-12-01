@@ -1,0 +1,14 @@
+---
+const { author, role } = Astro.props
+---
+
+<div class='p-4 bg-gray-100 rounded-lg text-center max-w-sm text-gray-900'>
+  <blockquote class='text-lg font-bold text-black'>
+    <slot />
+  </blockquote>
+
+  <div class='text-sm'>
+    {author}
+    <span class='text-xs text-gray-500'>({role})</span>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+---
+import LocaleSwitcher from '@/components/LocaleSwitcher.astro'
+import NavbarClient from '@/components/Navbar'
+import { defaultLocale } from '@/i18n/ui'
+import { getCollection } from 'astro:content'
+
+const navigations = await getCollection('navigation')
+const navigation = navigations[0]
+
+console.log(navigation)
+
+if (!navigation) {
+  throw new Error('No navigation configuration found')
+}
+
+const { logo, items } = navigation.data
+---
+
+<NavbarClient
+  locale={Astro.currentLocale || defaultLocale}
+  client:visible
+  logo={logo}
+  items={items}
+>
+  <LocaleSwitcher slot='localeSwitcher' />
+</NavbarClient>

@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
 import markdoc from '@astrojs/markdoc'
 import keystatic from '@keystatic/astro'
-
 import tailwind from '@astrojs/tailwind'
 
 // https://astro.build/config
@@ -12,5 +11,8 @@ export default defineConfig({
   i18n: {
     locales: ['en', 'es'],
     defaultLocale: 'en',
+    fallback: {
+      es: 'en',
+    },
   },
 })

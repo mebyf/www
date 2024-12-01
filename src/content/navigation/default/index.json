@@ -1,0 +1,73 @@
+{
+  "logo": {
+    "logoType": {
+      "discriminant": "image",
+      "value": {
+        "sources": [],
+        "fallback": {
+          "image": "/images/logo/default/logo/logoType/value/fallback/image.png",
+          "width": 120,
+          "height": 40
+        }
+      }
+    },
+    "link": "/",
+    "position": "left"
+  },
+  "items": [
+    {
+      "label": "Projects",
+      "link": "/projects",
+      "isExternal": false,
+      "isCTA": false,
+      "ctaStyle": "primary",
+      "children": [
+        {
+          "label": "Current Projects",
+          "link": "/projects/current-projects",
+          "isExternal": false,
+          "isCTA": false,
+          "ctaStyle": "primary"
+        },
+        {
+          "label": "Finished Projects",
+          "link": "/projects/finished-projects",
+          "isExternal": false,
+          "isCTA": false,
+          "ctaStyle": "primary"
+        }
+      ]
+    },
+    {
+      "label": "Get Involved",
+      "isExternal": false,
+      "isCTA": false,
+      "ctaStyle": "primary",
+      "children": []
+    },
+    {
+      "label": "About",
+      "link": "/about",
+      "isExternal": false,
+      "isCTA": false,
+      "ctaStyle": "primary",
+      "children": []
+    },
+    {
+      "label": "News",
+      "link": "/news",
+      "isExternal": false,
+      "isCTA": false,
+      "ctaStyle": "primary",
+      "children": []
+    },
+    {
+      "label": "Donate",
+      "link": "/donate",
+      "isExternal": false,
+      "isCTA": true,
+      "ctaStyle": "primary",
+      "children": []
+    }
+  ]
+}

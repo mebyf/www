@@ -3,6 +3,7 @@ import LocaleSwitcher from '@/components/LocaleSwitcher.astro'
 import '../styles.css'
 import { getRelativeLocaleUrl } from 'astro:i18n'
 import { defaultLocale } from '@/i18n/ui'
+import Navbar from '@/components/Navbar.astro'
 
 export interface Props {
   title: string
@@ -24,9 +25,7 @@ const locale = Astro.currentLocale || defaultLocale
     <title>{title}</title>
   </head>
   <body>
-    <a href={getRelativeLocaleUrl(locale, '/')}>LOGO</a>
-
-    <LocaleSwitcher />
+    <Navbar />
     <slot />
   </body>
 </html>
