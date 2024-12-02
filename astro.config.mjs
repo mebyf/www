@@ -41,7 +41,8 @@ export default defineConfig({
         values: ['local', 'github'],
         access: 'public',
         context: 'client',
-        optional: false,
+        default: 'local',
+        optional: true,
       }),
       ASTRO_ENV: envField.enum({
         values: ['development', 'staging', 'production'],
