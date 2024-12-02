@@ -20,8 +20,6 @@ export default defineConfig({
     tailwind(),
   ],
 
-  output: ASTRO_OUTPUT_MODE === 'static' ? 'static' : 'server',
-
   adapter: ASTRO_USE_CLOUDFLARE_ADAPTER ? cloudflare() : undefined,
 
   i18n: {
