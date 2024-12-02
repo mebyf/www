@@ -4,9 +4,9 @@ import markdoc from '@astrojs/markdoc'
 import keystatic from '@keystatic/astro'
 import tailwind from '@astrojs/tailwind'
 import { loadEnv } from 'vite'
-import cloudflare from '@astrojs/cloudflare'
+import netlifyIntegration from '@astrojs/netlify'
 
-const { ASTRO_OUTPUT_MODE, ASTRO_USE_CLOUDFLARE_ADAPTER } = loadEnv(
+const { ASTRO_OUTPUT_MODE, ASTRO_USE_NETLIFY_ADAPTER } = loadEnv(
   process.env.NODE_ENV,
   process.cwd(),
   ''
@@ -20,7 +20,7 @@ export default defineConfig({
     tailwind(),
   ],
 
-  adapter: ASTRO_USE_CLOUDFLARE_ADAPTER ? cloudflare() : undefined,
+  adapter: ASTRO_USE_NETLIFY_ADAPTER ? netlifyIntegration() : undefined,
 
   i18n: {
     locales: ['en', 'es'],
@@ -32,7 +32,7 @@ export default defineConfig({
 
   env: {
     schema: {
-      ASTRO_USE_CLOUDFLARE_ADAPTER: envField.boolean({
+      ASTRO_USE_NETLIFY_ADAPTER: envField.boolean({
         access: 'secret',
         context: 'server',
         optional: false,
