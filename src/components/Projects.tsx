@@ -4,7 +4,8 @@ interface ProjectsProps {
   title?: string
   subtitle?: string
   filter?: 'all' | 'active' | 'completed'
-  projects: any[]
+  projects?: any[]
+  projectsElement?: React.ReactNode
 }
 
 export const Projects: FC<ProjectsProps> = ({
@@ -12,6 +13,7 @@ export const Projects: FC<ProjectsProps> = ({
   subtitle,
   filter = 'all',
   projects,
+  projectsElement,
 }) => {
   return (
     <section className='py-16 not-prose'>
@@ -24,22 +26,24 @@ export const Projects: FC<ProjectsProps> = ({
         )}
 
         {/* Project grid will be implemented here */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {/* Project cards will be added here */}
+        {projectsElement || (
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+            {/* Project cards will be added here */}
 
-          {projects.map((project) => (
-            <a key={project.id} href={`/projects/${project.id}`}>
-              <img
-                width={300}
-                height={200}
-                className='h-48 w-full object-cover'
-                src={project.data.featuredImage}
-                alt={project.data.title}
-              />
-              <h3 className='text-2xl font-bold'>{project.data.title}</h3>
-            </a>
-          ))}
-        </div>
+            {projects?.map((project) => (
+              <a key={project.id} href={`/projects/${project.id}`}>
+                <img
+                  width={300}
+                  height={200}
+                  className='h-48 w-full object-cover'
+                  src={project.data.featuredImage}
+                  alt={project.data.title}
+                />
+                <h3 className='text-2xl font-bold'>{project.data.title}</h3>
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

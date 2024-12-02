@@ -3,6 +3,7 @@ import { getCollection, getEntry } from 'astro:content'
 import Layout from '@/layouts/Layout.astro'
 import { render } from 'astro:content'
 import Prose from '@/components/Prose.astro'
+import { Image } from 'astro:assets'
 
 const { slug } = Astro.params
 
@@ -20,14 +21,20 @@ export async function getStaticPaths() {
   }))
 }
 
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '@assets/images/**/*.{jpeg,jpg,png,gif,webp}'
+)
+
 const featuredImage = post.data.featuredImage.replace(
   '@assets/',
   '/src/assets/'
 )
+
+const featuredImageUrl = images[featuredImage]?.()
 ---
 
 <Layout title={post.data.title}>
-  <img src={featuredImage} alt={post.data.title} />
+  <Image class={'mx-auto'} src={featuredImageUrl} alt={post.data.title} />
   <div class='flex flex-col container gap-0.5'>
     <h1 class='text-4xl font-bold'>{post.data.title}</h1>
     <p class='text-lg text-gray-600'>{post.data.location}</p>

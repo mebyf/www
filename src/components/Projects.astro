@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import { Projects as ProjectsComponent } from './Projects'
+import { Image } from 'astro:assets'
 
 interface Props {
   title?: string
@@ -12,35 +13,54 @@ const { title, subtitle, filter = 'all' } = Astro.props
 
 const projects = await getCollection('projects')
 
-const filteredProjects = projects
-  .filter((project: any) => {
-    if (filter === 'active') {
-      return project.data.stage !== 'close-out'
-    }
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '@assets/images/**/*.{jpeg,jpg,png,gif,webp}'
+)
 
-    if (filter === 'completed') {
-      return project.data.stage === 'close-out'
-    }
+const filteredProjects = await Promise.all(
+  projects
+    .filter((project: any) => {
+      if (filter === 'active') {
+        return project.data.stage !== 'close-out'
+      }
 
-    return true
-  })
-  .map((project) => ({
-    ...project,
-    data: {
-      ...project.data,
-      featuredImage: project.data.featuredImage.replace(
-        '@assets/images/projects/',
-        '/src/assets/images/projects/'
-      ),
-    },
-  }))
+      if (filter === 'completed') {
+        return project.data.stage === 'close-out'
+      }
 
-console.log(projects)
+      return true
+    })
+    .map(async (project) => ({
+      ...project,
+      data: {
+        ...project.data,
+        featuredImage:
+          images[
+            project.data.featuredImage?.replace('@assets', '/src/assets')
+          ]?.(),
+      },
+    }))
+)
 ---
 
-<ProjectsComponent
-  title={title}
-  subtitle={subtitle}
-  filter={filter}
-  projects={filteredProjects}
-/>
+<ProjectsComponent title={title} subtitle={subtitle} filter={filter}>
+  <div
+    slot='projectsElement'
+    class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+  >
+    {
+      filteredProjects.map((project) => (
+        <a href={`/projects/${project.id}`}>
+          <Image
+            width={300}
+            height={200}
+            class='h-48 w-full object-cover'
+            src={project.data.featuredImage}
+            alt={project.data.title}
+          />
+          <h3 class='text-2xl font-bold'>{project.data.title}</h3>
+        </a>
+      ))
+    }
+  </div>
+</ProjectsComponent>
