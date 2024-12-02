@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, envField } from 'astro/config'
 import react from '@astrojs/react'
 import markdoc from '@astrojs/markdoc'
 import keystatic from '@keystatic/astro'
@@ -27,6 +27,28 @@ export default defineConfig({
     defaultLocale: 'en',
     fallback: {
       es: 'en',
+    },
+  },
+
+  env: {
+    schema: {
+      ASTRO_USE_CLOUDFLARE_ADAPTER: envField.boolean({
+        access: 'secret',
+        context: 'server',
+        optional: false,
+      }),
+      KEYSTATIC_STORAGE_KIND: envField.enum({
+        values: ['local', 'github'],
+        access: 'public',
+        context: 'client',
+        optional: false,
+      }),
+      ASTRO_ENV: envField.enum({
+        values: ['development', 'staging', 'production'],
+        access: 'public',
+        context: 'client',
+        optional: false,
+      }),
     },
   },
 })

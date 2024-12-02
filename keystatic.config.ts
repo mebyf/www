@@ -1,5 +1,6 @@
 import { components } from '@/keystatic/components'
 import { collection, config, fields, singleton } from '@keystatic/core'
+import { KEYSTATIC_STORAGE_KIND } from 'astro:env/client'
 import './src/styles.css'
 
 const navigationConfig = collection({
@@ -362,7 +363,12 @@ const projectsCollection = collection({
 
 export default config({
   storage: {
-    kind: 'local',
+    // https://keystatic.com/docs/github-mode#setting-up-git-hub-mode
+    kind: KEYSTATIC_STORAGE_KIND,
+    repo: {
+      owner: 'mebyf',
+      name: 'www',
+    },
   },
 
   // ui: {
