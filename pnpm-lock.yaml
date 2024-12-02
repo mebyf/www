@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@astrojs/cloudflare':
-        specifier: ^11.2.0
-        version: 11.2.0(astro@5.0.0-beta.12(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.27.4)(typescript@5.7.2)(yaml@2.6.1))
+        specifier: 12.0.0-beta.1
+        version: 12.0.0-beta.1(astro@5.0.0-beta.12(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.27.4)(typescript@5.7.2)(yaml@2.6.1))
       '@astrojs/markdoc':
         specifier: 0.12.0-beta.1
         version: 0.12.0-beta.1(@types/react@18.3.12)(astro@5.0.0-beta.12(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.27.4)(typescript@5.7.2)(yaml@2.6.1))(react@18.3.1)
@@ -82,10 +82,10 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@astrojs/cloudflare@11.2.0':
-    resolution: {integrity: sha512-XSDAYg2NJVo88GLD8kC20sG3ftQb446/+Jvqzd/wTxyLseMIioExdDNYCS51LmxG4De6YHphAF/f0AyyKItSjg==}
+  '@astrojs/cloudflare@12.0.0-beta.1':
+    resolution: {integrity: sha512-9k80LmMAunwcCWn0sJBwv3WvPlsJLZC7fCjWDjgLISMI8szeHw+qcS1C6xLGB1dJ3uCIhazjIPPFtGH4nBBQqg==}
     peerDependencies:
-      astro: ^4.10.3
+      astro: ^5.0.0-alpha.8
 
   '@astrojs/compiler@2.10.3':
     resolution: {integrity: sha512-bL/O7YBxsFt55YHU021oL+xz+B/9HvGNId3F9xURN16aeqDK9juHGktdkCSXz+U4nqFACq6ZFvWomOzhV+zfPw==}
@@ -125,8 +125,8 @@ packages:
     resolution: {integrity: sha512-8KCnaFAVsm/0KdXzWN0Afz50Ijyr1uHT31bE5AgCF5CLMh0dUpEOvHgZ++zLLq+VFj+5e4o0L6TLXMeAVHECBg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0}
 
-  '@astrojs/underscore-redirects@0.3.4':
-    resolution: {integrity: sha512-vYuYtIrTwxFlDRIhuekscorsHdLL8Hr3mgOczfM1tRWVPn54dDNcKG0DmfL4DlC5YJRoqVaVdUs508Hw643NTw==}
+  '@astrojs/underscore-redirects@0.4.0-beta.1':
+    resolution: {integrity: sha512-9aYbAEMR/kIJZmKsJh+t0NvVZsZXCyyohncTAePSBZf3MUf+CCWJVYdcwrlWSpJIGepAbLk+s3i8G/N/NlHiZA==}
 
   '@babel/code-frame@7.26.2':
     resolution: {integrity: sha512-RJlIHRueQgwWitWgF8OdFYGZX328Ax5BCemNGlqHfplnRT9ESi8JkFlvaVYbS+UubVY6dpv87Fs2u5M29iNFVQ==}
@@ -4493,14 +4493,14 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@astrojs/cloudflare@11.2.0(astro@5.0.0-beta.12(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.27.4)(typescript@5.7.2)(yaml@2.6.1))':
+  '@astrojs/cloudflare@12.0.0-beta.1(astro@5.0.0-beta.12(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.27.4)(typescript@5.7.2)(yaml@2.6.1))':
     dependencies:
       '@astrojs/internal-helpers': 0.4.1
-      '@astrojs/underscore-redirects': 0.3.4
+      '@astrojs/underscore-redirects': 0.4.0-beta.1
       '@cloudflare/workers-types': 4.20241127.0
       '@inox-tools/astro-when': 0.2.4(astro@5.0.0-beta.12(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.27.4)(typescript@5.7.2)(yaml@2.6.1))
       astro: 5.0.0-beta.12(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.27.4)(typescript@5.7.2)(yaml@2.6.1)
-      esbuild: 0.21.5
+      esbuild: 0.24.0
       estree-walker: 3.0.3
       magic-string: 0.30.14
       miniflare: 3.20241106.1
@@ -4603,7 +4603,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/underscore-redirects@0.3.4': {}
+  '@astrojs/underscore-redirects@0.4.0-beta.1': {}
 
   '@babel/code-frame@7.26.2':
     dependencies:
