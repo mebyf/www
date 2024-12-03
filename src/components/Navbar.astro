@@ -7,8 +7,6 @@ import { getCollection } from 'astro:content'
 const navigations = await getCollection('navigation')
 const navigation = navigations[0]
 
-console.log(navigation)
-
 if (!navigation) {
   throw new Error('No navigation configuration found')
 }
